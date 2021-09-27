@@ -14,19 +14,20 @@ const app= new Vue({
     el:'#root',
     data:{
         emails:[],
+        counter:0,
     },
     mounted(){
 
         // the while cycle doesn't work, it gives a infinite loop
-        var i=0;
-        while(i<10){
+        
+        while(this.counter<10){
             
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((response)=> {            
                 
                 this.emails.push(response.data.response);
             });
-            i++;
+            this.counter++;
             console.log(this.emails.length);
         } 
         console.log(this.emails);
@@ -42,11 +43,9 @@ const app= new Vue({
         // }
     },
     methods:{
-        // deleteEmail: function(){
-        //     this.emails.split(this.emails(index), 1);
-        // },
-        // addEmail: function(){
-            
-        // }
+        deleteEmail: function(index){
+            console.log(index);
+            this.emails.splice(index, 1);
+        },
     }
 });

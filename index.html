@@ -8,9 +8,11 @@
     </head>
     <body>
         <div class="main-container" id="root">
-            <ul v-if="emails.length==10">
+            <ul v-if="counter>=10">
                 <li v-for="(email,index) in emails">
                    Email numero {{index+1}}: {{email}}
+                   <button @click="deleteEmail(index)">Cancella</button>
+                   <button >Aggiungi</button>
                 </li>
             </ul>
         </div>
