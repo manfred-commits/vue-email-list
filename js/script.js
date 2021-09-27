@@ -6,6 +6,8 @@
 // generare 10 indirizzi email e stamparli in pagina all'interno di una lista.
 // Bonus
 // Far comparire gli indirizzi email solamente quando sono stati tutti generati.
+// bonus bonus
+// cancellazione/aggiunta di un elemento dall'array
 
 const app= new Vue({
 
@@ -16,27 +18,35 @@ const app= new Vue({
     mounted(){
 
         // the while cycle doesn't work, it gives a infinite loop
-        // while(this.emails.length<10){
-            
-        //     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-        //     .then((response)=> {            
-        //     console.log(response);
-        //     this.emails.push(response.data.response);
-        //     console.log(this.emails);
-        //     });
-        // } 
-
-        for(let i=this.emails.length;i<10;i++){
+        var i=0;
+        while(i<10){
             
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((response)=> {            
-            console.log(response);
-            this.emails.push(response.data.response);
-            console.log(this.emails);
+                
+                this.emails.push(response.data.response);
             });
-        }
+            i++;
+            console.log(this.emails.length);
+        } 
+        console.log(this.emails);
+
+        // for(let i=this.emails.length;i<10;i++){
+            
+        //     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        //     .then((response)=> {            
+            //     console.log(response);
+            //     this.emails.push(response.data.response);
+            //     console.log(this.emails);
+        //     });
+        // }
     },
     methods:{
-
+        // deleteEmail: function(){
+        //     this.emails.split(this.emails(index), 1);
+        // },
+        // addEmail: function(){
+            
+        // }
     }
 });
