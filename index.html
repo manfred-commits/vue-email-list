@@ -7,7 +7,13 @@
         <title>Vue Email List</title>
     </head>
     <body>
-        <div class="main-container" id="root"></div>
+        <div class="main-container" id="root">
+            <ul >
+                <li v-for="(email,index) in emails">
+                   Email numero {{index+1}}: {{email}}
+                </li>
+            </ul>
+        </div>
 
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
