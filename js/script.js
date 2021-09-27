@@ -18,7 +18,7 @@ const app= new Vue({
     },
     mounted(){
 
-        // the while cycle doesn't work, it gives a infinite loop
+        // the while cycle doesn't work, without a counter, because of the asynchronous nature of axios
         
         while(this.counter<10){
             
@@ -43,10 +43,14 @@ const app= new Vue({
         // }
     },
     methods:{
+        // this method deletes an email from the array emails
         deleteEmail: function(index){
             console.log(index);
             this.emails.splice(index, 1);
         },
+        
+        // this method add an email to the array emails, with a new call to the API
+
         addEmail: function(){
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((response)=> {            
