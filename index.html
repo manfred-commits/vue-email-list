@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="main-container" id="root">
-            <ul >
+            <ul v-if="emails.length==10">
                 <li v-for="(email,index) in emails">
                    Email numero {{index+1}}: {{email}}
                 </li>
