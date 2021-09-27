@@ -47,5 +47,12 @@ const app= new Vue({
             console.log(index);
             this.emails.splice(index, 1);
         },
+        addEmail: function(){
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((response)=> {            
+                
+                this.emails.push(response.data.response);
+            });
+        },
     }
 });
